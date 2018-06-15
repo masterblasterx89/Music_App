@@ -1,8 +1,11 @@
 package com.qubixsolutions.music_app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,7 +24,7 @@ public class TopCharts extends AppCompatActivity {
         words.add(new Word("Kanye West", "Yikes"));
         words.add(new Word("Shawn Mendes", "In My Blood"));
         words.add(new Word("Ed Sheeran", "Perfect"));
-        words.add(new Word("Imagine Dragons", "Whatever it Takes"));
+
 
 
 
@@ -33,5 +36,18 @@ public class TopCharts extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(adapter);
+
+
+        TextView mainActivity = (TextView) findViewById(R.id.main_button);
+
+
+        mainActivity.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent mainAcivityIntent = new Intent(TopCharts.this, MainActivity.class);
+                startActivity(mainAcivityIntent);
+            }
+        });
     }
 }
